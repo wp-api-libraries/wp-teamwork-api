@@ -142,19 +142,140 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		protected function is_status_ok( $code ) {
 			return ( 200 <= $code && 300 > $code );
 		}
-
-		// PROJECTS 
 		
+		// AUTHENTICATE.
+		
+		/**
+		 * authenticate function.
+		 * 
+		 * @access public
+		 * @return void
+		 */
+		public function authenticate() {
+			return $this->build_request( '/authenticate.json' )->fetch();
+		}
+		
+		// ACCOUNT.
+		
+		/**
+		 * get_accounts function.
+		 * 
+		 * @access public
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_accounts( $args = array() ) {
+			return $this->build_request( '/accounts.json' )->fetch();
+		}
+		
+		// ACTIVITY.
+		
+		/**
+		 * get_latest_activity function.
+		 * 
+		 * @access public
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_latest_activity( $args = array() ) {
+			return $this->build_request( '/latestActivity.json' )->fetch();
+		}
+		
+		/**
+		 * get_projects_latest_activity function.
+		 * 
+		 * @access public
+		 * @param mixed $project_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_projects_latest_activity( $project_id, $args = array() ) {
+			return $this->build_request( '/projects/'. $project_id .'/latestActivity.json' )->fetch();
+		}
+		
+		/**
+		 * get_task_activity function.
+		 * 
+		 * @access public
+		 * @param mixed $task_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_task_activity( $task_id, $args = array() ) {
+			return $this->build_request( '/yoursite/tasks/'. $task_id .'/activity.json' )->fetch();
+		}
+		
+		/**
+		 * get_task_audit_history function.
+		 * 
+		 * @access public
+		 * @param mixed $task_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_task_audit_history( $task_id, $args = array() ) {
+			return $this->build_request( '/tasks/'. $task_id .'/audit.json' )->fetch();
+		}
+		
+		/**
+		 * delete_activity function.
+		 * 
+		 * @access public
+		 * @param mixed $activity_id
+		 * @return void
+		 */
+		public function delete_activity( $activity_id ) {
+			return $this->build_request( '/activity/'. $activity_id .'.json' )->fetch();
+		}
+
+		// PROJECTS.
 		
 		/**
 		 * Get Projects
 		 * 
+		 * @docs https://developer.teamwork.com/projects/projects/retrieve-all-projects
 		 * @access public
 		 * @param array $args (default: array())
 		 * @return void
 		 */
 		public function get_projects( $args = array() ) {
 			return $this->build_request( '/projects.json', $args )->fetch();
+		}
+		
+		/**
+		 * get_project function.
+		 * 
+		 * @docs https://developer.teamwork.com/projects/projects/retrieve-a-single-project
+		 * @access public
+		 * @param mixed $project_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_project( $project_id, $args = array() ) {
+			return $this->build_request( '/projects/' . $project_id . '.json', $args )->fetch();
+		}
+		
+		/**
+		 * get_company_projects function.
+		 * 
+		 * @access public
+		 * @param mixed $company_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_company_projects( $company_id, $args = array() ) {
+			return $this->build_request( '/companies/' . $company_id . '/projects.json', $args )->fetch();
+		}
+		
+		/**
+		 * get_starred_projects function.
+		 * 
+		 * @access public
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_starred_projects( $args = array() ) {
+			return $this->build_request( '/projects/starred.json', $args )->fetch();
 		}
 
 
