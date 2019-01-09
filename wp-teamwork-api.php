@@ -99,15 +99,18 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return array|WP_Error Request results or WP_Error on request failure.
 		 */
 		protected function fetch() {
+			
 			// Make the request.
 			$response = wp_remote_request( $this->base_uri . $this->route, $this->args );
+			
 			// Retrieve Status code & body.
 			$code = wp_remote_retrieve_response_code( $response );
 			$body = json_decode( wp_remote_retrieve_body( $response ) );
 			$this->clear();
+			
 			// Return WP_Error if request is not successful.
 			if ( ! $this->is_status_ok( $code ) ) {
-				return new WP_Error( 'response-error', sprintf( __( 'Status: %d', 'wp-postmark-api' ), $code ), $body );
+				return new WP_Error( 'response-error', sprintf( __( 'Status: %d', 'wp-teamwork-api' ), $code ), $body );
 			}
 			return $body;
 		}
@@ -115,12 +118,13 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * Set request headers.
 		 */
 		protected function set_headers() {
-			// Set request headers.
+
 			$this->args['headers'] = array(
 				'Content-Type'  => 'application/json',
 				'Authorization' => 'Basic ' . base64_encode( "{$this->username}:{$this->password}" ),
 			);
 		}
+		
 		/**
 		 * Clear query data.
 		 */
@@ -128,6 +132,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 			$this->args       = array();
 			$this->query_args = array();
 		}
+		
 		/**
 		 * Check if HTTP status code is a success.
 		 *
@@ -149,7 +154,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_projects( $args = array() ) {
-			return $this->build_request( 'projects.json', $args )->fetch();
+			return $this->build_request( '/projects.json', $args )->fetch();
 		}
 
 
