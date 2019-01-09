@@ -225,7 +225,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_activity( $activity_id ) {
-			return $this->build_request( '/activity/'. $activity_id .'.json' )->fetch();
+			return $this->build_request( '/activity/'. $activity_id .'.json', 'DELETE' )->fetch();
 		}
 
 		// PROJECTS.
@@ -277,7 +277,183 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		public function get_starred_projects( $args = array() ) {
 			return $this->build_request( '/projects/starred.json', $args )->fetch();
 		}
-
-
+		
+		/**
+		 * create_project function.
+		 * 
+		 * @access public
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function create_project( $args = array() ) {
+			return $this->build_request( '/projects.json', $args, 'POST' )->fetch();
+		}
+		
+		/**
+		 * set_project_rates function.
+		 * 
+		 * @access public
+		 * @param mixed $project_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function set_project_rates( $project_id, $args = array() ) {
+			return $this->build_request( '/projects/'. $project_id .'rates.json', $args, 'POST' )->fetch();
+		}
+		
+		/**
+		 * update_project function.
+		 * 
+		 * @access public
+		 * @param mixed $project_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function update_project( $project_id, $args = array() ) {
+			return $this->build_request( '/projects/'. $project_id .'.json', $args, 'PUT' )->fetch();
+		}
+		
+		/**
+		 * star_project function.
+		 * 
+		 * @access public
+		 * @param mixed $project_id
+		 * @return void
+		 */
+		public function star_project( $project_id ) {
+			return $this->build_request( '/projects/'. $project_id .'/star.json', 'PUT' )->fetch();
+		}
+		
+		/**
+		 * unstar_project function.
+		 * 
+		 * @access public
+		 * @param mixed $project_id
+		 * @return void
+		 */
+		public function unstar_project( $project_id ) {
+			return $this->build_request( '/projects/'. $project_id .'/unstar.json', 'PUT' )->fetch();
+		}
+			
+		/**
+		 * delete_project function.
+		 * 
+		 * @access public
+		 * @param mixed $project_id
+		 * @return void
+		 */
+		public function delete_project( $project_id ) {
+			return $this->build_request( '/projects/'. $project_id .'/unstar.json', 'DELETE' )->fetch();
+		}
+		
+		// COMPANIES.
+		
+		/**
+		 * get_companies function.
+		 * 
+		 * @access public
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_companies( $args = array() ) {
+			return $this->build_request( '/companies.json', $args )->fetch();
+		}
+		
+		
+		/**
+		 * get_project_companies function.
+		 * 
+		 * @access public
+		 * @param mixed $project_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_project_companies( $project_id, $args = array() ) {
+			return $this->build_request( '/projects/'. $project_id.'/companies.json', $args )->fetch();
+		}
+		
+		/**
+		 * get_company function.
+		 * 
+		 * @access public
+		 * @param mixed $company_id
+		 * @return void
+		 */
+		public function get_company( $company_id ) {
+			return $this->build_request( '/companies/'. $company_id .'.json' )->fetch();
+		}
+		
+		/**
+		 * create_company function.
+		 * 
+		 * @access public
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function create_company( $args = array() ) {
+			return $this->build_request( '/companies.json', $args, 'POST' )->fetch();
+		}
+		
+		/**
+		 * update_company function.
+		 * 
+		 * @access public
+		 * @param mixed $company_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function update_company( $company_id, $args = array() ) {
+			return $this->build_request( '/companies/'. $company_id .'.json', $args, 'PUT' )->fetch();
+		}
+		
+		/**
+		 * delete_company function.
+		 * 
+		 * @access public
+		 * @param mixed $company_id
+		 * @return void
+		 */
+		public function delete_company( $company_id ) {
+			return $this->build_request( '/companies/'. $company_id .'.json', 'DELETE' )->fetch();
+		}
+		
+		
+		// TRASHCANS.
+		
+		/**
+		 * get_project_trash function.
+		 * 
+		 * @access public
+		 * @param mixed $project_id
+		 * @return void
+		 */
+		public function get_project_trash( $project_id ) {
+			return $this->build_request( '/trashcan/projects/'. $project_id .'.json' )->fetch();
+		}
+		
+		/**
+		 * restore_item_from_trash function.
+		 * 
+		 * @access public
+		 * @param mixed $resource
+		 * @param mixed $resource_id
+		 * @return void
+		 */
+		public function restore_item_from_trash( $resource, $resource_id ) {
+			return $this->build_request( '/trashcan/'.$resource.'/'. $resource_id .'/restore.json' )->fetch();
+		}
+		
+		// TIMEZONES.
+		
+		/**
+		 * get_timezones function.
+		 * 
+		 * @access public
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_timezones( $args = array() ) {
+			return $this->build_request( '/timezones.json', $args )->fetch();
+		}
 	}
 }
