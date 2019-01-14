@@ -346,6 +346,86 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 			return $this->build_request( '/projects/'. $project_id .'/unstar.json', 'DELETE' )->fetch();
 		}
 		
+		// PROJECT CATEGORIES.
+		
+		/**
+		 * get_project_categories function.
+		 * 
+		 * @access public
+		 * @param mixed $args
+		 * @return void
+		 */
+		public function get_project_categories( $args ) {
+			return $this->build_request( '/projectsCategories.json', $args )->fetch();
+		}
+		
+		/**
+		 * get_project_category_by_id function.
+		 * 
+		 * @access public
+		 * @param mixed $project_category_id
+		 * @return void
+		 */
+		public function get_project_category_by_id( $project_category_id ) {
+			return $this->build_request( '/projectsCategories/'. $project_category_id .'.json' )->fetch();
+		}
+		
+		/**
+		 * get_tasks_by_project_categories function.
+		 * 
+		 * @access public
+		 * @param mixed $project_category_id
+		 * @return void
+		 */
+		public function get_tasks_by_project_categories( $project_category_id ) {
+			return $this->build_request( '/projectsCategories/'. $project_category_id .'/tasks.json' )->fetch();
+		}
+		
+		/**
+		 * add_project_category function.
+		 * 
+		 * @access public
+		 * @param mixed $args
+		 * @return void
+		 */
+		public function add_project_category( $args ) {
+			return $this->build_request( '/projectsCategories.json', $args, 'POST' )->fetch();
+		}
+		
+		/**
+		 * update_project_category function.
+		 * 
+		 * @access public
+		 * @param mixed $project_category_id
+		 * @param mixed $args
+		 * @return void
+		 */
+		public function update_project_category( $project_category_id, $args ) {
+			return $this->build_request( '/projectsCategories/'. $project_category_id .'.json', $args, 'PUT' )->fetch();
+		}
+		
+		/**
+		 * delete_project_category function.
+		 * 
+		 * @access public
+		 * @param mixed $project_category_id
+		 * @return void
+		 */
+		public function delete_project_category( $project_category_id ) {
+			return $this->build_request( '/projectsCategories/'. $project_category_id .'.json', 'DELETE' )->fetch();
+		}
+		
+		// PROJECT OWNER.
+		
+		// SITE OWNER.
+		
+		// TASK LISTS.
+		
+		// TASKS.
+		
+		// TASK REMINDERS.
+	
+		
 		// COMPANIES.
 		
 		/**
@@ -417,6 +497,87 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 			return $this->build_request( '/companies/'. $company_id .'.json', 'DELETE' )->fetch();
 		}
 		
+		// PEOPLE.
+		
+		/**
+		 * add_user function.
+		 * 
+		 * @access public
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function add_user( $args = array() ) {
+			return $this->build_request( '/people.json', 'POST' )->fetch();
+		}
+		
+		// PEOPLE STATUS.
+		
+		// CALENDAR EVENT.
+		
+		// FILES.
+		
+		// FILE CATEGORIES.
+		
+		// NOTEBOOKS.
+		
+		// NOTEBOOK CATEGORIES.
+		
+		// LINKS.
+		
+		// LINK CATEGORIES.
+		
+		// CLOCK IN/ CLOCK OUT.
+		
+		// TIME TRACKING.
+		
+		// MESSAGES.
+		
+		// MESSAGE REPLIES.
+		
+		// MESSAGE CATEGORIES.
+		
+		// COMMENTS.
+		
+		// INVOICES.
+		
+		// EXPENSES.
+		
+		// RISKS.
+		
+		// BOARDS.
+		
+		// PORTFOLIO BOARDS.
+		
+		// FILE UPLOADING.
+		
+		// PROJECT UPDATES.
+		
+		// PROJECT ROLES.
+		
+		// PERMISSIONS.
+		
+		// LIKES.
+		
+		// TAGS.
+		
+		// PROJECT EMAIL ADDRESSES.
+		
+		// SEARCH.
+		
+		// WEBHOOKS.
+		
+		// WORKLOADS.
+		
+		/**
+		 * get_workload function.
+		 * 
+		 * @access public
+		 * @param mixed $args
+		 * @return void
+		 */
+		public function get_workload( $args ) {
+			return $this->build_request( '/workload.json', $args )->fetch();
+		}
 		
 		// TRASHCANS.
 		
