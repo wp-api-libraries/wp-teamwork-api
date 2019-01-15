@@ -575,6 +575,28 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 
 		// FILES.
 
+		/**
+		 * get_project_files function.
+		 *
+		 * @access public
+		 * @param mixed $project_id
+		 * @return void
+		 */
+		public function get_project_files( $project_id ) {
+			return $this->build_request( '/projects/'. $project_id .'/files.json' )->fetch();
+		}
+
+		/**
+		 * get_file function.
+		 *
+		 * @access public
+		 * @param mixed $file_id
+		 * @return void
+		 */
+		public function get_file( $file_id ) {
+			return $this->build_request( '/files/'. $file_id .'.json' )->fetch();
+		}
+
 		// FILE CATEGORIES.
 
 		// NOTEBOOKS.
