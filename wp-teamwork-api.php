@@ -11,7 +11,7 @@
  * Author: WP API Libraries
  * Version: 1.0.0
  * Author URI: https://wp-api-libraries.com
- * GitHub Plugin URI: https://github.com/imforza
+ * GitHub Plugin URI: https://github.com/wp-api-libraries/wp-teamwork-ap
  * GitHub Branch: master
  */
  // Exit if accessed directly.
