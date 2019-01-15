@@ -500,6 +500,32 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		// PEOPLE.
 		
 		/**
+		 * get_people function.
+		 * 
+		 * @access public
+		 * @param mixed $args
+		 * @return void
+		 */
+		public function get_people( $args = array() ) {
+			return $this->build_request( '/people.json', $args )->fetch();
+		}
+		
+		/**
+		 * get_people_available_for_calendar_event function.
+		 * 
+		 * @access public
+		 * @param mixed $args
+		 * @return void
+		 */
+		public function get_people_available_for_calendar_event( $args = array() ) {
+			
+		}
+		
+		public function get_people_avail_for_message( $args = array() ) {
+			
+		}
+		
+		/**
 		 * add_user function.
 		 * 
 		 * @access public
@@ -507,7 +533,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function add_user( $args = array() ) {
-			return $this->build_request( '/people.json', 'POST' )->fetch();
+			return $this->build_request( '/people.json', $args, 'POST' )->fetch();
 		}
 		
 		// PEOPLE STATUS.
@@ -575,7 +601,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @param mixed $args
 		 * @return void
 		 */
-		public function get_workload( $args ) {
+		public function get_workload( $args = array() ) {
 			return $this->build_request( '/workload.json', $args )->fetch();
 		}
 		
