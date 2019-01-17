@@ -190,7 +190,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_projects_latest_activity( $project_id, $args = array() ) {
-			return $this->build_request( '/projects/'. $project_id .'/latestActivity.json' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '/latestActivity.json' )->fetch();
 		}
 
 		/**
@@ -202,7 +202,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_task_activity( $task_id, $args = array() ) {
-			return $this->build_request( '/yoursite/tasks/'. $task_id .'/activity.json' )->fetch();
+			return $this->build_request( '/yoursite/tasks/' . $task_id . '/activity.json' )->fetch();
 		}
 
 		/**
@@ -214,7 +214,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_task_audit_history( $task_id, $args = array() ) {
-			return $this->build_request( '/tasks/'. $task_id .'/audit.json' )->fetch();
+			return $this->build_request( '/tasks/' . $task_id . '/audit.json' )->fetch();
 		}
 
 		/**
@@ -225,7 +225,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_activity( $activity_id ) {
-			return $this->build_request( '/activity/'. $activity_id .'.json', 'DELETE' )->fetch();
+			return $this->build_request( '/activity/' . $activity_id . '.json', 'DELETE' )->fetch();
 		}
 
 		// PROJECTS.
@@ -298,7 +298,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function set_project_rates( $project_id, $args = array() ) {
-			return $this->build_request( '/projects/'. $project_id .'rates.json', $args, 'POST' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . 'rates.json', $args, 'POST' )->fetch();
 		}
 
 		/**
@@ -310,7 +310,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function update_project( $project_id, $args = array() ) {
-			return $this->build_request( '/projects/'. $project_id .'.json', $args, 'PUT' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '.json', $args, 'PUT' )->fetch();
 		}
 
 		/**
@@ -321,7 +321,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function star_project( $project_id ) {
-			return $this->build_request( '/projects/'. $project_id .'/star.json', 'PUT' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '/star.json', 'PUT' )->fetch();
 		}
 
 		/**
@@ -332,7 +332,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function unstar_project( $project_id ) {
-			return $this->build_request( '/projects/'. $project_id .'/unstar.json', 'PUT' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '/unstar.json', 'PUT' )->fetch();
 		}
 
 		/**
@@ -343,7 +343,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_project( $project_id ) {
-			return $this->build_request( '/projects/'. $project_id .'/unstar.json', 'DELETE' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '/unstar.json', 'DELETE' )->fetch();
 		}
 
 		// PROJECT CATEGORIES.
@@ -367,7 +367,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_project_category_by_id( $project_category_id ) {
-			return $this->build_request( '/projectsCategories/'. $project_category_id .'.json' )->fetch();
+			return $this->build_request( '/projectsCategories/' . $project_category_id . '.json' )->fetch();
 		}
 
 		/**
@@ -378,7 +378,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_tasks_by_project_categories( $project_category_id ) {
-			return $this->build_request( '/projectsCategories/'. $project_category_id .'/tasks.json' )->fetch();
+			return $this->build_request( '/projectsCategories/' . $project_category_id . '/tasks.json' )->fetch();
 		}
 
 		/**
@@ -401,7 +401,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function update_project_category( $project_category_id, $args ) {
-			return $this->build_request( '/projectsCategories/'. $project_category_id .'.json', $args, 'PUT' )->fetch();
+			return $this->build_request( '/projectsCategories/' . $project_category_id . '.json', $args, 'PUT' )->fetch();
 		}
 
 		/**
@@ -412,13 +412,11 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_project_category( $project_category_id ) {
-			return $this->build_request( '/projectsCategories/'. $project_category_id .'.json', 'DELETE' )->fetch();
+			return $this->build_request( '/projectsCategories/' . $project_category_id . '.json', 'DELETE' )->fetch();
 		}
 
 		// PROJECT OWNER.
-
 		// SITE OWNER.
-
 		// MILESTONES.
 
 		/**
@@ -441,24 +439,20 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_projects_milestones( $project_id, $args = array() ) {
-			return $this->build_request( '/projects/'. $project_id .'/milestones.json' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '/milestones.json' )->fetch();
 		}
 
 		// TASK LISTS.
-
 		// TASKS.
-
 		public function get_tasks( $args ) {
 
 		}
 
 		public function get_projects_tasks( $project_id, $args = array() ) {
-			return $this->build_request( '/projects/'. $project_id .'/tasks.json' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '/tasks.json' )->fetch();
 		}
 
 		// TASK REMINDERS.
-
-
 		// COMPANIES.
 
 		/**
@@ -482,7 +476,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_project_companies( $project_id, $args = array() ) {
-			return $this->build_request( '/projects/'. $project_id.'/companies.json', $args )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '/companies.json', $args )->fetch();
 		}
 
 		/**
@@ -493,7 +487,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_company( $company_id ) {
-			return $this->build_request( '/companies/'. $company_id .'.json' )->fetch();
+			return $this->build_request( '/companies/' . $company_id . '.json' )->fetch();
 		}
 
 		/**
@@ -516,7 +510,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function update_company( $company_id, $args = array() ) {
-			return $this->build_request( '/companies/'. $company_id .'.json', $args, 'PUT' )->fetch();
+			return $this->build_request( '/companies/' . $company_id . '.json', $args, 'PUT' )->fetch();
 		}
 
 		/**
@@ -527,7 +521,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_company( $company_id ) {
-			return $this->build_request( '/companies/'. $company_id .'.json', 'DELETE' )->fetch();
+			return $this->build_request( '/companies/' . $company_id . '.json', 'DELETE' )->fetch();
 		}
 
 		// PEOPLE.
@@ -570,9 +564,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		}
 
 		// PEOPLE STATUS.
-
 		// CALENDAR EVENT.
-
 		// FILES.
 
 		/**
@@ -583,7 +575,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_project_files( $project_id ) {
-			return $this->build_request( '/projects/'. $project_id .'/files.json' )->fetch();
+			return $this->build_request( '/projects/' . $project_id . '/files.json' )->fetch();
 		}
 
 		/**
@@ -594,21 +586,15 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_file( $file_id ) {
-			return $this->build_request( '/files/'. $file_id .'.json' )->fetch();
+			return $this->build_request( '/files/' . $file_id . '.json' )->fetch();
 		}
 
 		// FILE CATEGORIES.
-
 		// NOTEBOOKS.
-
 		// NOTEBOOK CATEGORIES.
-
 		// LINKS.
-
 		// LINK CATEGORIES.
-
 		// CLOCK IN/ CLOCK OUT.
-
 		// TIME TRACKING.
 
 		/**
@@ -623,41 +609,23 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		}
 
 		// MESSAGES.
-
 		// MESSAGE REPLIES.
-
 		// MESSAGE CATEGORIES.
-
 		// COMMENTS.
-
 		// INVOICES.
-
 		// EXPENSES.
-
 		// RISKS.
-
 		// BOARDS.
-
 		// PORTFOLIO BOARDS.
-
 		// FILE UPLOADING.
-
 		// PROJECT UPDATES.
-
 		// PROJECT ROLES.
-
 		// PERMISSIONS.
-
 		// LIKES.
-
 		// TAGS.
-
 		// PROJECT EMAIL ADDRESSES.
-
 		// SEARCH.
-
 		// WEBHOOKS.
-
 		// WORKLOADS.
 
 		/**
@@ -681,7 +649,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function get_project_trash( $project_id ) {
-			return $this->build_request( '/trashcan/projects/'. $project_id .'.json' )->fetch();
+			return $this->build_request( '/trashcan/projects/' . $project_id . '.json' )->fetch();
 		}
 
 		/**
@@ -693,7 +661,7 @@ if ( ! class_exists( 'TeamworkAPI' ) ) {
 		 * @return void
 		 */
 		public function restore_item_from_trash( $resource, $resource_id ) {
-			return $this->build_request( '/trashcan/'.$resource.'/'. $resource_id .'/restore.json' )->fetch();
+			return $this->build_request( '/trashcan/' . $resource . '/' . $resource_id . '/restore.json' )->fetch();
 		}
 
 		// TIMEZONES.
